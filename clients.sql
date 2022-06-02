@@ -13,6 +13,10 @@ CREATE DATABASE poei_30_mai_ventes;
 
 -- 3. Utiliser/sélectionner une base de données
 -- USE <nom_base_de_données>
-USE poei_30_mai_ventes
+USE poei_30_mai_ventes;
+
+-- 4.Lister les tables de la base de donnés
+
+SHOW TABLES;
 
 -- 4. Création de la table clients
