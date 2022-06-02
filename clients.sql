@@ -46,3 +46,18 @@ ALTER TABLE clients ADD COLUMN postnom VARCHAR(50);
 -- Modifier une table en ajoutant une nouvelle colonne après une autre
 -- On rajoute la colonne "postnom" après la colonne "prenom"
 ALTER TABLE clients ADD COLUMN postnom VARCHAR(50) AFTER prenom;
+
+
+-- LMD
+
+-- Lister(SELECT) les informations de toutes(*) les colonnes
+--       de la table(FROM) client
+
+SELECT * FROM clients;
+
+-- Insetion des données
+INSERT INTO clients(nom,prenom,email,telephone) 
+values("DUMORTIER","Steven","stevendumortier59@gmail.com","07474747474"),
+("RAULIN","Ludovic","lraulin843@gmail.com","0621461941"),
+("Perez","Marion","marion.oceane.perez@gmail.com","0786842676")
+;
