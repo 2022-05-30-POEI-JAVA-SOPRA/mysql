@@ -34,3 +34,8 @@ CREATE TABLE clients(
  email VARCHAR(70),
  telephone VARCHAR(20) NOT NULL
 );
+
+
+-- Voir la desciption de la tabe 
+-- DESC <nom_table> ou DESCRIBE <nom_table>
+DESC clients;
