@@ -61,3 +61,8 @@ values("DUMORTIER","Steven","stevendumortier59@gmail.com","07474747474"),
 ("RAULIN","Ludovic","lraulin843@gmail.com","0621461941"),
 ("Perez","Marion","marion.oceane.perez@gmail.com","0786842676")
 ;
+
+-- Mise à jour des données
+UPDATE clients SET telephone="0673460986" WHERE id=2;
+
+UPDATE clients SET postnom="Tarzan",age=17 WHERE id=1;
