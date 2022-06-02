@@ -66,3 +66,17 @@ values("DUMORTIER","Steven","stevendumortier59@gmail.com","07474747474"),
 UPDATE clients SET telephone="0673460986" WHERE id=2;
 
 UPDATE clients SET postnom="Tarzan",age=17 WHERE id=1;
+
+-- Supprime en enregistrement
+
+DELETE FROM clients WHERE id=7;
+
+-- Configurer MYSQL en mode strict
+-- Valeur pour le mode strict : STRICT_TRANS_TABLES;
+
+--> Verifier le mode de transation
+SHOW VARIABLES LIKE 'sql_mode'
+
+--> Définir le mode stric pour les transactions
+set sql_mode='STRICT_TRANS_TABLES';
+
