@@ -6,3 +6,41 @@ SELECT id,name,manufacturer,price FROM telephones ORDER BY price DESC;
 
 -- Several order criterias
 SELECT id,name,manufacturer,price FROM telephones ORDER BY price DESC,manufacturer DESC;
+
+-- Computed columns
+SELECT name, manufacturer,price, units_sold, price*units_sold FROM telephones;
+
+-- Alias
+SELECT name AS modele, manufacturer AS constructeur,price AS prix, units_sold AS unites_vendues, (price*units_sold) AS chiffre_affaire FROM telephones;
+
+-- Concatenation
+
+SELECT CONCAT(manufacturer," ",name) as nom,CONCAT(price,"€") as prix FROM telephones; 
+
+SELECT CONCAT (name, " ", manufacturer) AS modele, CONCAT (price, " ", "€") AS prix, units_solds AS unites_vendues, CONCAT ((price*units_solds), " ", "€") AS CA FROM telephones;
+
+
+-- Création d'une vue
+CREATE VIEW v_revenu_total AS SELECT name AS modele, manufacturer AS constructeur,price AS prix, units_sold AS unites_vendues, (price*units_sold) AS chiffre_affaire FROM telephones;
+
+-- Requête sur une vue
+SELECT * FROM v_revenu_total;
+
+-- Compter le nombre de records
+SELECT DISTINCT(manufacturer) FROM telephones;
+
+-- Afficher le nombre d'appareils Apple
+SELECT COUNT(*) FROM telephones WHERE manufacturer="Apple";
+
+
+-- Total des ventes
+SELECT SUM(units_sold)AS total_ventes FROM telephones;
+
+-- Average sales
+SELECT AVG(units_sold)AS moyenne_ventes FROM telephones;
+
+-- Ventes les plus elevées
+SELECT MAX(units_sold)AS ventes_plus_elevee FROM telephones;
+
+-- Ventes les moins elevées
+SELECT MIN(units_sold)AS ventes_moins_elevee FROM telephones;
