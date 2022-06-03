@@ -80,3 +80,9 @@ SHOW VARIABLES LIKE 'sql_mode'
 --> Définir le mode stric pour les transactions
 set sql_mode='STRICT_TRANS_TABLES';
 
+
+-- Filtres
+
+SELECT * FROM clients WHERE age>20;
+
+SELECT * FROM clients WHERE age<30;
