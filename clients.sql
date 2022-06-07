@@ -36,6 +36,14 @@ CREATE TABLE clients(
 );
 
 
+CREATE TABLE telephones(
+    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    numero VARCHAR(20) NOT NULL,
+    id_client INTEGER,
+    FOREIGN KEY(id_client) REFERENCES clients(id) ON DELETE CASCADE
+);
+
+
 -- Voir la desciption de la tabe 
 -- DESC <nom_table> ou DESCRIBE <nom_table>
 DESC clients;
@@ -86,3 +94,48 @@ set sql_mode='STRICT_TRANS_TABLES';
 SELECT * FROM clients WHERE age>20;
 
 SELECT * FROM clients WHERE age<30;
+
+
+
+
+-- Supprimer une colonne
+ALTER TABLE clients DROP COLUMN telephone;
+
+-- Supprimer une table
+-- Ex : DROP TABLE clients;
+-- Supprimer une base de données
+-- Ex : DROP DATABASE sales;
+
+-- INSERER plusierurs numéros
+INSERT INTO telephones(numero,id_client) values("0636363336",1),("0637363336",1),("0736363336",1),("0638863336",2),("0636360946",2),("0636364446",3),("0637380336",4),("0708463336",4),("0636363339",5),("0636222236",6),("0636363333",6),("0788363336",6),("0639993336",6);
+
+
+-- Join query
+-- Afficher tous les numéros de téléhone de tous les clients
+-- Tables sollicités : clients et telephones
+
+SELECT clients.prenom, clients.nom, telephones.numero 
+FROM clients JOIN telephones ON clients.id=telephones.id_client;
+
+-- Jointure et concaternation
+SELECT CONCAT(clients.prenom," ",clients.nom) AS nom, clients.email,telephones.numero 
+FROM clients JOIN telephones ON clients.id=telephones.id_client;
+
+-- Jointure et condition
+SELECT CONCAT(clients.prenom," ",clients.nom) AS nom, clients.email,telephones.numero 
+FROM clients JOIN telephones ON clients.id=telephones.id_client WHERE clients.id=1;
+
+
+-- Aggregations
+
+-- Total des ventes
+SELECT SUM(units_sold)AS total_ventes FROM telephones;
+
+-- Average sales
+SELECT AVG(units_sold)AS moyenne_ventes FROM telephones;
+
+-- Ventes les plus elevées
+SELECT MAX(units_sold)AS ventes_plus_elevee FROM telephones;
+
+-- Ventes les moins elevées
+SELECT MIN(units_sold)AS ventes_moins_elevee FROM telephones;
